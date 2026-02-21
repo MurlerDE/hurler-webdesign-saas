@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@function rem($px) {
+    @if math.is-unitless($px) {
+        @return math.div($px, 16) * 1rem;
+    }
+
+    @else {
+        @error 'Keine Einheit für die rem() Funktion eingeben; nur Zahlen sind erlaubt.';
+    }
+}
+
+@function em($px) {
+    @if math.is-unitless($px) {
+        @return math.div($px, 16) * 1em;
+    }
+
+    @else {
+        @error 'Keine Einheit für die em() Funktion eingeben; nur Zahlen sind erlaubt.';
+    }
+}

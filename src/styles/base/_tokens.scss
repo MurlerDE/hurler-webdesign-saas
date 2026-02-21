@@ -1,0 +1,40 @@
+:root {
+    // Farben
+    --brand-vue: 250;
+    --bg-surface: oklch(99% 0.01 var(--brand-vue));
+    --bg-muted: oklch(99% 0.02 var(--brand-vue));
+    --text-main: oklch(20% 0.01 var(--brand-vue));
+    --text-muted: oklch(45% 0.02 var(--brand-vue));
+
+    --accent: oklch(60% 0.18 var(--brand-vue));
+    --accent-hover: oklch(55% 0.22 var(--brand-vue));
+
+    --button-text: oklch(100% 0.01 var(--brand-vue));
+    --border: oklch(90% 0.02 var(--brand-vue));
+    --shadow-color: 0 0% 0%;
+
+    // Skalierung (modulare Skala)
+    --space-unit: 0.25rem;
+    --space-1: calc(var(--space-unit) * 1); // 4px
+    --space-2: calc(var(--space-unit) * 2); // 8px
+    --space-3: calc(var(--space-unit) * 4); // 16px
+    --space-4: calc(var(--space-unit) * 8); // 32px
+
+    // Typografie (fluid)
+    --font-size-base: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+    --font-size-lg: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+    --font-size-xl: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+}
+
+[data-theme="dark"] {
+    --bg-surface: oklch(15% 0.02 var(--brand-vue));
+    --bg-muted: oklch(20% 0.02 var(--brand-vue));
+    --text-main: oklch(95% 0.01 var(--brand-vue));
+    --text-muted: oklch(75% 0.02 var(--brand-vue));
+
+    --accent: oklch(70% 0.15 var(--brand-vue));
+    --accent-hover: oklch(75% 0.18 var(--brand-vue));
+
+    --border: oklch(25% 0.02 var(--brand-vue));
+    --shadow-color: 0 0% 100%;
+}
