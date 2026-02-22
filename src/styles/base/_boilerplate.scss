@@ -22,3 +22,14 @@ img {
     display: block;
     max-width: 100%;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

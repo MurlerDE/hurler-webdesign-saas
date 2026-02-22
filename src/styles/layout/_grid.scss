@@ -1,0 +1,41 @@
+@use "../abstracts";
+
+.landing-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
+    grid-template-areas:
+        "navigation     navigation          navigation"
+        ".              hero                ."
+        ".              features-section    ."
+        "footer         footer              footer";
+}
+
+.navigation__component {
+    grid-area: navigation;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 2px 10px rgba(197, 197, 197, 0.824);
+    position: sticky;
+    top: 0;
+}
+
+.hero__component {
+    grid-area: hero;
+    height: 80vh;
+    padding: var(--space-4);
+
+    @include abstracts.breakpoint("md") {
+        padding: 0;
+    }
+}
+
+.features-section__component {
+    grid-area: features-section;
+    height: 80vh;
+}
+
+.footer__component {
+    grid-area: footer;
+}
