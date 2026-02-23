@@ -1,3 +1,17 @@
+@use "abstracts";
+
+// ==============================
+// Tier 1: Primitives
+// ==============================
+:root {
+    // Sie haben diese bereits als OKLCH
+    --color-white: oklch(100% 0 0);
+    --color-black: oklch(0% 0 0);
+}
+
+// ==============================
+// Tier 2: Semantic
+// ==============================
 :root {
     // Farben
     --brand-vue: 250;
@@ -12,6 +26,9 @@
     --button-text: oklch(100% 0.01 250);
     --border: oklch(90% 0.02 250);
     --shadow-color: oklch(0% 0 250);
+
+    // Stapelbare Werte
+    --z-index-sticky: 100;
 
     // Skalierung (modulare Skala)
     --space-unit: 0.25rem;
@@ -37,4 +54,24 @@
 
     --border: oklch(25% 0.02 250);
     --shadow-color: 0 0% 100%;
+}
+
+// ==============================
+// Tier 3: Component-Specific
+// ==============================
+:root {
+    --text-on-accent: var(--color-white);
+
+    // Navigation
+    --nav-shadow: 1px 2px 10px oklch(80% 0 250 / 0.1);
+    --nav-backdrop: blur(10px);
+    --nav-bg: oklch(100% 0.00011 271.152 / 0.05);
+    --nav-height: abstracts.rem(60);
+
+    // Dark Mode Overrides
+    [data-theme="dark"] {
+        // Navigation
+        --nav-shadow: 1px 2px 10px oklch(0% 0 250 / 0.5);
+        --nav-bg: oklch(20% 0.02 250 / 0.8);
+    }
 }

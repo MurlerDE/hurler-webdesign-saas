@@ -1,32 +1,19 @@
-@use "../../../../../styles/abstracts";
+@use "abstracts";
 
-.navigation {
-    display: none;
+.header {
+    display: flex;
+    justify-content: space-between;
+    min-height: abstracts.rem(60);
+    border-radius: 0 0 10px 10px;
+    background-color: var(--nav-bg);
+    backdrop-filter: var(--nav-backdrop);
+    box-shadow: var(--nav-shadow);
+    position: sticky;
+    top: 0;
 
-    @include abstracts.breakpoint("md") {
-        display: block;
-        padding-right: var(--space-4);
-    }
-
-    &__list {
+    &__nav-section {
         display: flex;
-        gap: var(--space-4);
-    }
-
-    &__list-item {
-        list-style: none;
-        font-weight: 500;
-        font-size: var(--font-size-base);
-        color: var(--text-main);
-        transition: color 0.3s ease;
-
-        a {
-            color: var(--accent);
-
-            &:hover {
-                color: var(--accent-hover);
-            }
-        }
+        flex-direction: row;
     }
 }
 
@@ -39,14 +26,13 @@
     &__logo {
         font-size: 1.5rem;
         font-weight: bold;
-        color: var(--text-main);
+        color: var(--text-on-accent);
         border: 1px solid var(--accent);
         width: abstracts.rem(30);
         height: abstracts.rem(30);
         display: flex;
         background-color: var(--accent);
         border-radius: 5px;
-        color: white;
     }
 
     &__company {
@@ -57,6 +43,18 @@
         span {
             color: var(--accent);
         }
+    }
+}
+
+.theme-toggle-container {
+    width: abstracts.rem(24);
+    height: abstracts.rem(24);
+    margin: auto;
+    margin-left: var(--space-4);
+
+    @include abstracts.breakpoint("md") {
+        margin: auto;
+        margin-left: var(--space-4);
     }
 }
 

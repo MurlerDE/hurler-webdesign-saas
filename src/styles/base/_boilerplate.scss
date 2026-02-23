@@ -1,12 +1,18 @@
+@use "tokens";
+
 html {
     font-size: 100%;
     box-sizing: border-box;
+    scroll-padding-top: 60px;
+    scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
+    padding: 0;
+    margin: 0;
 }
 
 body {

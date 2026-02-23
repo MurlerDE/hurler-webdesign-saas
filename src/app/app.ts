@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {provideIcons} from "@ng-icons/core";
-import {cssMenu} from "@ng-icons/css.gg"
+import {cssMenu} from "@ng-icons/css.gg";
 
 @Component({
   selector: 'app-root',

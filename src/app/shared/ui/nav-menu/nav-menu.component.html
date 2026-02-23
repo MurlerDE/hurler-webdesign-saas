@@ -1,0 +1,27 @@
+<nav class="navigation">
+  <ul class="navigation__list">
+    @for (item of items(); track item.target) {
+      <li class="navigation__list-item">
+        <!-- Anchor-Link: Smooth Scroll -->
+        @if (isAnchor(item)) {
+          <a [href]="'#' + item.target" (click)="onAnchorClick($event, item)">
+            @if (item.icon) {
+              <ng-icon [name]="item.icon"></ng-icon>
+            }
+            {{ item.label }}
+          </a>
+        }
+
+        <!-- Route-Link: Angular Router -->
+        @else if (isRoute(item)) {
+          <a [routerLink]="item.target">
+            @if (item.icon) {
+              <ng-icon [name]="item.icon"></ng-icon>
+            }
+            {{ item.label }}
+          </a>
+        }
+      </li>
+    }
+  </ul>
+</nav>

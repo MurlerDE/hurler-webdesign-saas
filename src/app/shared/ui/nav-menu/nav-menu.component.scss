@@ -1,0 +1,36 @@
+@use "abstracts";
+
+.navigation {
+    display: none;
+
+    @include abstracts.breakpoint("md") {
+        display: block;
+        padding-right: var(--space-4);
+    }
+
+    &__list {
+        display: flex;
+        gap: var(--space-4);
+    }
+
+    &__list-item {
+        list-style: none;
+        font-weight: 500;
+        font-size: var(--font-size-base);
+        color: var(--text-main);
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+
+        a {
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+
+            &:hover {
+                color: var(--accent-hover);
+            }
+        }
+    }
+}
