@@ -21,9 +21,9 @@ export class LandingpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.updateMetadata({
-      title: 'Performante Webseiten & Webdesign für KMU',
-      description: 'Spezialist für performante Webseiten ohne CMS für KMU. Wir bieten maßgeschneidertes Webdesign für eine schnelle und sichere Online-Präsenz.',
-      socialsDescription: 'Webseiten ohne CMS für KMU – der Performance-Vorteil für Ihr Unternehmen.',
+      title: 'Schnelle Webseiten für Handwerk & Vereine',
+      description: 'Spezialist für schnelle Webseiten ohne WordPress für Handwerk & Vereine. Wir bieten maßgeschneidertes Webdesign für eine schnelle und sichere Online-Präsenz.',
+      socialsDescription: 'Webdesign ohne WordPress | Hurler Webdesign – Nördlingen',
       type: 'website'
     });
   }

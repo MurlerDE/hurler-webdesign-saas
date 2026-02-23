@@ -34,6 +34,7 @@ export class SeoService {
   this.metaService.updateTag({ property: 'og:description', content: data.description });
   this.metaService.updateTag({ property: 'og:type', content: data.type || 'website' });
   this.metaService.updateTag({ property: 'og:image', content: data.image || fallbackImage });
+  this.metaService.updateTag({ property: 'og:url', content: url });
 
   // Twitter
   this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' }); // Wichtig für große Bilder!
@@ -66,7 +67,7 @@ export class SeoService {
       "url": "https://hurler-webdesign.de",
       "logo": "https://hurler-webdesign.de/assets/logo.png",
       "image": "https://hurler-webdesign.de/assets/office.jpg",
-      "description": "Spezialist für performante Webseiten ohne CMS für kleine und mittelständische Unternehmen.",
+      "description": "Spezialist für schnelle Webseiten ohne WordPress für Handwerk & Vereine. Wir bieten maßgeschneidertes Webdesign für eine schnelle und sichere Online-Präsenz.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Untermagerbein 30",
@@ -79,6 +80,7 @@ export class SeoService {
         "latitude": 48.7506,
         "longitude": 10.5773
       },
+      "areaServed": ["Nördlingen", "Donauwörth", "Augsburg", "Bayern"],
       "telephone": "+49 171 8084830",
       "priceRange": "€€"
     };
