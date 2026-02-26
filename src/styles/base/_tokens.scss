@@ -15,7 +15,7 @@
 :root {
     // Farben
     --brand-vue: 250;
-    --bg-surface: oklch(88% 0.01 250);
+    --bg-surface: oklch(100% 0.01 250);
     --bg-muted: oklch(99% 0.02 250);
     --text-main: oklch(20% 0.01 250);
     --text-muted: oklch(45% 0.02 250);
@@ -67,11 +67,12 @@
     --nav-backdrop: blur(10px);
     --nav-bg: oklch(100% 0.00011 271.152 / 0.05);
     --nav-height: abstracts.rem(60);
+}
 
-    // Dark Mode Overrides
-    [data-theme="dark"] {
-        // Navigation
-        --nav-shadow: 1px 2px 10px oklch(0% 0 250 / 0.5);
-        --nav-bg: oklch(20% 0.02 250 / 0.8);
-    }
+[data-theme="dark"] {
+    --text-on-accent: var(--color-white);
+
+    // Navigation
+    --nav-shadow: 1px 2px 10px oklch(0% 0 250 / 0.5);
+    --nav-bg: oklch(20% 0.02 250 / 0.8);
 }
