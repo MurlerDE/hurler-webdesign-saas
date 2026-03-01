@@ -1,60 +1,86 @@
-import { 
-  Component, 
-  Injectable, 
-  inject, 
-  RendererFactory2, 
-  ViewEncapsulation, 
-  ChangeDetectionStrategy, 
-  signal, 
-  computed } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoData } from "@core/models/seo.model";
 import { DOCUMENT } from "@angular/common";
+import { RendererFactory2 } from "@angular/core";
+import { SeoData } from "@core/models/seo.model";
 
-@Injectable({providedIn: "root"})
+@Injectable({ providedIn: "root" })
 export class SeoService {
   private titleService = inject(Title);
   private metaService = inject(Meta);
   private document = inject(DOCUMENT);
   private rendererFactory = inject(RendererFactory2);
-  private renderer = this.rendererFactory.createRenderer(null, null)
+  private renderer =
+    this.rendererFactory.createRenderer(null, null);
 
   private readonly BRAND = "Hurler Webdesign";
+  private readonly FALLBACK_IMAGE =
+    'https://hurler-webdesign.de/assets/og-default.jpg';
+  private readonly DEFAULT_TYPE = "website";
 
-  updateMetadata(data: SeoData, canonicalPath: string = "") {
-  const fullTitle = `${data.title} | ${this.BRAND}`;
-  const url = `https://hurler-webdesign.de${canonicalPath}`;
-  const fallbackImage = 'https://hurler-webdesign.de/assets/og-default.jpg'; // Falls mal kein Bild da ist
+  updateMetadata(data: SeoData, canonicalPath?: string) {
+    const fullTitle = `${data.title} | ${this.BRAND}`;
+    const url = `https://hurler-webdesign.de${canonicalPath || ""}`;
 
-  this.titleService.setTitle(fullTitle);
-  this.metaService.updateTag({ name: 'description', content: data.description });
+    this.titleService.setTitle(fullTitle);
+    this.metaService.updateTag({ name: "description", content: data.description });
 
-  // Open Graph
-  this.metaService.updateTag({ property: 'og:title', content: fullTitle }); // Mit Branding
-  this.metaService.updateTag({ property: 'og:description', content: data.description });
-  this.metaService.updateTag({ property: 'og:type', content: data.type || 'website' });
-  this.metaService.updateTag({ property: 'og:image', content: data.image || fallbackImage });
-  this.metaService.updateTag({ property: 'og:url', content: url });
+    // Open Graph
+    this.metaService.updateTag({
+      property: "og:title",
+      content: fullTitle,
+    });
+    this.metaService.updateTag({
+      property: "og:description",
+      content: data.description,
+    });
+    this.metaService.updateTag({
+      property: "og:type",
+      content: data.type || this.DEFAULT_TYPE,
+    });
+    this.metaService.updateTag({
+      property: "og:image",
+      content: data.image || this.FALLBACK_IMAGE,
+    });
+    this.metaService.updateTag({ property: "og:url", content: url });
 
-  // Twitter
-  this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' }); // Wichtig für große Bilder!
-  this.metaService.updateTag({ name: 'twitter:title', content: fullTitle });
-  this.metaService.updateTag({ name: 'twitter:description', content: data.description });
-  this.metaService.updateTag({ name: 'twitter:url', content: url });
-  this.metaService.updateTag({ name: 'twitter:image', content: data.image || fallbackImage });
+    // Twitter
+    this.metaService.updateTag({
+      name: "twitter:card",
+      content: "summary_large_image",
+    });
+    this.metaService.updateTag({
+      name: "twitter:title",
+      content: fullTitle,
+    });
+    this.metaService.updateTag({
+      name: "twitter:description",
+      content: data.socialsDescription || data.description,
+    });
+    this.metaService.updateTag({ name: "twitter:url", content: url });
+    this.metaService.updateTag({
+      name: "twitter:image",
+      content: data.image || this.FALLBACK_IMAGE,
+    });
 
-  this.updateCanonicalUrl(url);
-  this.setLocalBusinessSchema();
-}
+    if (canonicalPath) {
+      this.updateCanonicalUrl(url);
+    }
+
+    this.setLocalBusinessSchema();
+  }
 
   private updateCanonicalUrl(url: string) {
-    let link: HTMLLinkElement = this.document.querySelector("link[rel='canonical']") || this.renderer.createElement('link');
-    this.renderer.setAttribute(link, 'rel', 'canonical');
-    this.renderer.setAttribute(link, 'href', url);
+    let link: HTMLLinkElement =
+      this.document.querySelector("link[rel='canonical']") ||
+      this.renderer.createElement("link");
+    this.renderer.setAttribute(link, "rel", "canonical");
+    this.renderer.setAttribute(link, "href", url);
     if (!this.document.head.contains(link)) {
       this.renderer.appendChild(this.document.head, link);
     }
   }
+
 
   private setLocalBusinessSchema() {
     const oldScript = this.document.getElementById('schema-org-data');
