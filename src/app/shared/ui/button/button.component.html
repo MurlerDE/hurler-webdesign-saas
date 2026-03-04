@@ -1,1 +1,46 @@
-<p>button works!</p>
+<!-- Router Link (internal navigation) -->
+@if (isRouteType) {
+  <a
+    [routerLink]="item.target"
+    routerLinkActive="nav-btn--active"
+    [class]="hostClasses.join(' ')"
+    [attr.aria-disabled]="disabled || null"
+  >
+    @if (item.icon) {
+      <span class="nav-btn__icon" aria-hidden="true">{{ item.icon }}</span>
+    }
+    <span class="nav-btn__label">{{ item.label }}</span>
+  </a>
+}
+
+<!-- Anchor (smooth scroll) -->
+@if (isAnchorType) {
+  <a
+    [href]="item.target"
+    (click)="scrollToAnchor($event)"
+    [class]="hostClasses.join(' ')"
+    [attr.aria-disabled]="disabled || null"
+  >
+    @if (item.icon) {
+      <span class="nav-btn__icon" aria-hidden="true">{{ item.icon }}</span>
+    }
+    <span class="nav-btn__label">{{ item.label }}</span>
+  </a>
+}
+
+<!-- External Link -->
+@if (isExternalType) {
+  <a
+    [href]="item.target"
+    target="_blank"
+    rel="noopener noreferrer"
+    [class]="hostClasses.join(' ')"
+    [attr.aria-disabled]="disabled || null"
+  >
+    @if (item.icon) {
+      <span class="nav-btn__icon" aria-hidden="true">{{ item.icon }}</span>
+    }
+    <span class="nav-btn__label">{{ item.label }}</span>
+    <span class="nav-btn__external-icon" aria-label="Opens in new tab">↗</span>
+  </a>
+}

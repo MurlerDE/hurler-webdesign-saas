@@ -1,5 +1,15 @@
 @use "abstracts";
 
+.wrapper {
+    border-radius: 0 0 10px 10px;
+    background-color: var(--nav-bg);
+    backdrop-filter: var(--nav-backdrop);
+    box-shadow: var(--nav-shadow);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-sticky);
+}
+
 .header {
     max-width: 1200px;
     margin: 0 auto;

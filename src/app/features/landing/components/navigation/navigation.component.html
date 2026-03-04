@@ -1,15 +1,18 @@
-<section class="header">
-  <div class="logo-container">
-    <span class="logo-container__logo centered">H</span>
-    <p class="logo-container__company"><span>Hurler</span> Webdesign</p>
-  </div>
-  <div class="header__nav-section centered">
-    <div class="theme-toggle-container">
-      <app-toogle-theme></app-toogle-theme>
+<div class="wrapper">
+  <section class="header">
+    <div class="logo-container">
+      <span class="logo-container__logo centered">H</span>
+      <p class="logo-container__company"><span>Hurler</span> Webdesign</p>
     </div>
-    <app-nav-menu [items]="navigationService.landingNavigation()"></app-nav-menu>
-    <div class="burger-menu centered">
-      <ng-icon name="cssMenu" class="burger-menu__icon"></ng-icon>
+    <div class="header__nav-section centered">
+      <div class="theme-toggle-container">
+        <app-toogle-theme></app-toogle-theme>
+      </div>
+      <app-nav-menu [items]="navigationService.landingNavigation()"></app-nav-menu>
+      <div class="burger-menu centered">
+        <ng-icon name="cssMenu" class="burger-menu__icon"></ng-icon>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+</div>

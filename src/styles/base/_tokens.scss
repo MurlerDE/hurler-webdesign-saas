@@ -26,8 +26,7 @@
     --button-text: oklch(100% 0.01 250);
     --border: oklch(90% 0.02 250);
     --shadow-color: oklch(0% 0 250);
-
-    // Stapelbare Werte
+    --overlay: oklch(90% 0.02 250 / 0.9); // Stapelbare Werte
     --z-index-sticky: 100;
 
     // Skalierung (modulare Skala)
@@ -41,6 +40,7 @@
     --font-size-base: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
     --font-size-lg: clamp(1.25rem, 1vw + 1rem, 1.5rem);
     --font-size-xl: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    --font-size-xxl: clamp(2.5rem, 3vw + 1.5rem, 4.5rem)
 }
 
 [data-theme="dark"] {
@@ -54,6 +54,8 @@
 
     --border: oklch(25% 0.02 250);
     --shadow-color: 0 0% 100%;
+    --overlay: oklch(30% 0.0075 250 / 0.9);
+
 }
 
 // ==============================

@@ -1,4 +1,66 @@
+@use "abstracts";
+
 .hero-section {
+  position: relative; // WICHTIG: Bezugspunkt für das Video
+  height: 100vh;
+  margin-top: -60px;
+  padding-top: 60px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; // Zentriert den Text-Inhalt
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1200px;
+    height: 100%;
+    background-color: var(--overlay);
+    z-index: -1;
+  }
+
+  &__wrapper {
+    @include abstracts.container-wrapper;
+  }
+
+  &__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; // Hinter den Text legen
+  }
+
+  h1 {
+    color: var(--text-main); // Dein Wunsch-Style
+    font-size: var(--font-size-xxl);
+    position: relative; // Stellt sicher, dass der Text über dem Video-Layer bleibt
+    margin-bottom: var(--space-4);
+  }
+
+  &__claim {
+    color: var(--text-main);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+
+  video {
+    /* Das hier ist der entscheidende Teil */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // WICHTIG: Füllt den Container komplett aus, ohne zu verzerren
+    object-position: center; // Zentriert das Video, falls Ränder abgeschnitten werden
+  }
 }

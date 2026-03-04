@@ -13,19 +13,27 @@ export class SeoService {
   private renderer =
     this.rendererFactory.createRenderer(null, null);
 
+  // Constants for metadata
   private readonly BRAND = "Hurler Webdesign";
   private readonly FALLBACK_IMAGE =
     'https://hurler-webdesign.de/assets/og-default.jpg';
   private readonly DEFAULT_TYPE = "website";
 
+  /**
+   * Updates SEO metadata with the provided data.
+   *
+   * @param data - The SeoData object containing title, description, type, and image.
+   * @param canonicalPath - Optional parameter for the canonical URL path.
+   */
   updateMetadata(data: SeoData, canonicalPath?: string) {
     const fullTitle = `${data.title} | ${this.BRAND}`;
     const url = `https://hurler-webdesign.de${canonicalPath || ""}`;
 
+    // Update title and meta description
     this.titleService.setTitle(fullTitle);
     this.metaService.updateTag({ name: "description", content: data.description });
 
-    // Open Graph
+    // Open Graph metadata
     this.metaService.updateTag({
       property: "og:title",
       content: fullTitle,
@@ -44,7 +52,7 @@ export class SeoService {
     });
     this.metaService.updateTag({ property: "og:url", content: url });
 
-    // Twitter
+    // Twitter card metadata
     this.metaService.updateTag({
       name: "twitter:card",
       content: "summary_large_image",
@@ -63,13 +71,20 @@ export class SeoService {
       content: data.image || this.FALLBACK_IMAGE,
     });
 
+    // Update canonical URL if provided
     if (canonicalPath) {
       this.updateCanonicalUrl(url);
     }
 
+    // Set local business schema.org metadata
     this.setLocalBusinessSchema();
   }
 
+  /**
+   * Updates the canonical URL for the given page.
+   *
+   * @param url - The new canonical URL.
+   */
   private updateCanonicalUrl(url: string) {
     let link: HTMLLinkElement =
       this.document.querySelector("link[rel='canonical']") ||
@@ -81,7 +96,9 @@ export class SeoService {
     }
   }
 
-
+  /**
+   * Sets the local business schema.org JSON-LD script in the head of the document.
+   */
   private setLocalBusinessSchema() {
     const oldScript = this.document.getElementById('schema-org-data');
     if (oldScript) this.renderer.removeChild(this.document.head, oldScript);

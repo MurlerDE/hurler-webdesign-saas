@@ -1,16 +1,23 @@
 <section class="hero-section">
-  <h1 class="hero-section__header">
-    <span>Digitales Handwerk</span> <br />
-    <span>statt Standard-Baukasten</span>
-  </h1>
-  <p class="hero-section__claim">
-    Wir programmieren Blitzschnelle, sichere und maßgeschneiderte Webseiten für kleine,
-    mittelständische Unternehmen und Vereine. Ohne CMS-Ballast, dafür mit maximaler Performance.
-  </p>
-  <div class="hero-section__links">
-    <button href="#" variant="primary" label="Leistungen ansehen">Leistungen ansehen</button>
-    <button href="#" variant="secondary" label="Warum kein WordPress?">
-      Warum kein WordPress?
-    </button>
+  <div class="hero-section__video-container">
+    <video autoplay muted loop>
+      <source src="/video/white_mit_black_stripes.webm" type="video/webm">
+    </video>
+  </div>
+  <div class="hero-section__wrapper">
+    <h1 class="hero-section__header">
+      Digitales Handwerk <br />
+      statt Standard-Baukasten
+    </h1>
+    <p class="hero-section__claim">
+      Wir programmieren Blitzschnelle, sichere und maßgeschneiderte Webseiten für kleine,
+      mittelständische Unternehmen und Vereine. Ohne CMS-Ballast, dafür mit maximaler Performance.
+    </p>
+    <div class="hero-section__links">
+      <app-button [item]="{ label: 'Über uns', type: 'anchor', target: '#about' }" variant="primary"></app-button>
+      <app-button (click)="onFeaturesClick()" [item]="{ label: 'Warum kein Wordpress', type: 'anchor', target: 'about'}"
+        variant="primary"></app-button>
+    </div>
+
   </div>
 </section>
