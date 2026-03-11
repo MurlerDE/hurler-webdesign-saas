@@ -1,6 +1,7 @@
 @use "abstracts";
 
 .wrapper {
+    height: var(--nav-height);
     border-radius: 0 0 10px 10px;
     background-color: var(--nav-bg);
     backdrop-filter: var(--nav-backdrop);
@@ -58,11 +59,11 @@
     width: abstracts.rem(24);
     height: abstracts.rem(24);
     margin: auto;
-    margin-left: var(--space-4);
+    margin-right: var(--space-4);
 
     @include abstracts.breakpoint("md") {
         margin: auto;
-        margin-left: var(--space-4);
+        margin-right: var(--space-4);
     }
 }
 

@@ -34,6 +34,7 @@
     "@angular/ssr": "^21.0.3",
     "@ng-icons/core": "^33.1.0",
     "@ng-icons/css.gg": "^33.1.0",
+    "@openpanel/web": "^1.2.0",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"

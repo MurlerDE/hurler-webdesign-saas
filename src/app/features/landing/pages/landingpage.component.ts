@@ -3,6 +3,7 @@ import { NavigationComponent } from '../components/navigation/navigation.compone
 import { HeroComponent } from '../components/hero/hero.component';
 import { FeaturesSectionComponent } from '../components/features-section/features-section.component';
 import { FooterComponent } from '../components/footer/footer.component';
+import { ProjectsComponent } from '../components/projects/projects.component';
 import { SeoService } from '@core/services/seo.service';
 
 @Component({
@@ -11,8 +12,9 @@ import { SeoService } from '@core/services/seo.service';
     NavigationComponent,
     HeroComponent,
     FeaturesSectionComponent,
-    FooterComponent
-  ],
+    ProjectsComponent,
+    FooterComponent,
+],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss',
 })

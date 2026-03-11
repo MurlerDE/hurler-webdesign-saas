@@ -1,0 +1,20 @@
+<section class="projects" id="projects">
+    <div class="projects__wrapper">
+        <div class="projects__card-container centered">
+            @for(project of projects; track project.id) {
+                <div class="projects__card">
+                    <img [src]="project.image" />
+                    <div class="projects__card__description">
+                        <h3>{{ project.company }}</h3>
+                        <p>{{ project.shortDescription }}</p>
+                        <div class="projects__card-features">
+                            @for(feature of project.features; track $index) {
+                                <p>{{ feature }}</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

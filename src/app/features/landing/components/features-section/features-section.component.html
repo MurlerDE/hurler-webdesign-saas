@@ -1,1 +1,15 @@
-<p>features-section works!</p>
+<section class="features-section" id="features-section">
+    <div class="features-section__wrapper">
+        <div class="features-section__grid centered">
+            @for (feature of featuresList; track feature.id) {
+            <div class="features-section__card">
+                <h3 class="features-section__claim">{{ feature.claim }}</h3>
+                <p class="features-section__description">{{ feature.description }}</p>
+                @if (feature.icon) {
+                    <img [src]="feature.icon" [alt]="feature.iconDescription" />
+                }
+            </div>
+            }
+        </div>
+    </div>
+</section>

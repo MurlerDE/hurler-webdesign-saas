@@ -10,12 +10,13 @@ export class NavigationService {
     // === STATE ===
     private readonly _navigationItems = signal<NavigationItem[]>([
         // Anchor-Links (Landingpage intern)
-        { label: 'Home', type: 'anchor', target: 'hero', icon: 'home' },
-        { label: 'Features', type: 'anchor', target: 'features-section', icon: 'star' },
-        { label: 'Pricing', type: 'anchor', target: 'pricing', icon: 'tag' },
+        { label: 'Home', type: 'anchor', target: 'hero' },
+        { label: 'Features', type: 'anchor', target: 'features-section'},
+        { label: 'Projekte', type: 'anchor', target: 'projects' },
+        { label: 'Pricing', type: 'anchor', target: 'pricing' },
         
         // Route-Links ( andere Pages)
-        { label: 'Login', type: 'route', target: '/login', icon: 'log-in' },
+        { label: 'Login', type: 'route', target: '/login' },
         { 
             label: 'Dashboard', 
             type: 'route', 

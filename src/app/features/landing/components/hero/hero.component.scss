@@ -2,15 +2,11 @@
 
 .hero-section {
   position: relative; // WICHTIG: Bezugspunkt für das Video
-  height: 100vh;
-  margin-top: -60px;
-  padding-top: 60px;
+  min-height: calc(100vh + var(--nav-height));
+  margin-top: var(--neg-nav-height);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center; // Zentriert den Text-Inhalt
 
   &::before {
     content: '';
@@ -19,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--overlay);
+    background-color: var(--hero-video-overlay);
     z-index: -1;
   }
 
@@ -62,5 +58,10 @@
     height: 100%;
     object-fit: cover; // WICHTIG: Füllt den Container komplett aus, ohne zu verzerren
     object-position: center; // Zentriert das Video, falls Ränder abgeschnitten werden
+    mask-image: linear-gradient(to bottom,
+        black 0%,
+        black 70%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
   }
 }
